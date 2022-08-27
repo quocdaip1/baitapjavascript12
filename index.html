@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="container.css">
+    <title>Document</title> 
+    <style>
+            * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #edf2f9;
+      }
+      body .container {
+        display: flex;
+        width: 700px;
+        min-height: 500px;
+        background: #ecf0f3;
+        border: 1px #fff;
+        border-radius: 5px;
+        box-shadow: 3px 4px 2px 9px rgba(0, 0, 0, 0.267);
+      }
+
+      /* thiết kế menu */
+      .container .menu-container {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        background: #ecf0f3;
+        align-items: center;
+        box-shadow: 1px 1px 5px rgba(117, 116, 116, 0.644);
+      }
+      .container .menu-container .menu-button {
+        height: 35px;
+        width: 100px;
+        margin: 10px 5px;
+        cursor: pointer;
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 1px 1px 5px rgba(117, 116, 116, 0.644);
+      }
+
+      .container .click-button {
+        background: blue;
+      }
+      .container .content-container .show {
+        display: block !important;
+      }
+
+      /* thiết kế nội dung hiện thị */
+
+      ul {
+        padding: 10px 35px;
+      }
+      .container .content-container {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container .content-container .adv {
+        border: 2px solid #fff;
+        width: 90%;
+        height: 70px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        box-shadow: 1px 1px 5px rgba(117, 116, 116, 0.644);
+        border-left: 5px solid yellow;
+        border-radius: 5px;
+      }
+      .container .content-container .box-homework {
+        width: 90%;
+        display: none;
+      }
+      .container .content-container .box-homework .sug {
+        padding: 10px 0;
+        width: 100%;
+        line-height: 25px;
+      }
+      .container .content-container .box-homework .sug .text-sug {
+        width: 100%;
+        padding: 15px 20px;
+        border: 2px solid #fff;
+        border-left: 5px solid blue;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px rgba(117, 116, 116, 0.644);
+      }
+
+      /* thiết kế showbox */
+
+      .home-work2{
+        display: block !important;
+      }
+      input[type = number]{
+        margin-top: 10px;
+          padding: 5px;
+          border-radius: 10px;
+          
+      }
+
+
+      .container .box-homework .result{
+            display: flex;
+            flex-direction: column;
+      }
+
+      .container .box-homework .result .button-result{
+        width: 100px;
+        height: 30px;
+        border-radius:20px;
+        margin: 10px 0 0 0;
+        cursor: pointer;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu-container">
+        <button data-tab="1" class="menu-button">Bài 1</button>
+        <button data-tab="2" class="menu-button">Bài 2</button>
+        <button data-tab="3" class="menu-button">Bài 3</button>
+        <button data-tab="4" class="menu-button">Bài 4</button>
+        <button data-tab="5" class="menu-button">Bài 5</button>
+      </div>
+      <div class="content-container">
+        <div class="adv">
+          <b class="text-advice"
+            >Đây chỉ là gợi ý nên người làm có thể làm khác gợi ý, miễn đúng
+            theo yêu cầu trong file đề bài</b
+          >
+        </div>
+        <div data-tabId="1" class="box-homework home-work1">
+          <h2>Tính tiền lương nhân viên</h2>
+          <div class="sug">
+            <div class="text-sug">
+              <b>Gợi ý:</b>
+              <p>Công thức: Lương = Lương 1 ngày * số ngày làm</p>
+              Kiến thức áp dụng:
+              <ul>
+                <li>Tìm tới thẻ và lấy giá trị</li>
+                <li>Tạo hàm cơ bản</li>
+                <li>Gắn sự kiện click cho button</li>
+                <li>Thay đổi nội dung cho thẻ</li>
+                <li>Xử lý load trang với button của form</li>
+              </ul>
+            </div>
+            <div class="calc">
+              <div class="input-payroll">
+                <input
+                  type="number"
+                  placeholder="Nhập lương một ngày"
+                  id="payroll-day"
+                />
+                <input
+                  type="number"
+                  placeholder="Số ngày làm"
+                  id="day-work"
+                />
+              </div>
+
+              <div class="result">
+                <button class="button-result" onclick="tinhLuong()">Tính lương</button>
+                <input type="number" id="Net-salary" placeholder="Lương nhận được"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-tabId="2" class="box-homework home-work2">
+          <h2>Tính giá trị trung bình</h2>
+          <div class="sug">
+            <div class="text-sug">
+              <b>Gợi ý:</b>
+              <p>Công thức: Lương = Lương 1 ngày * số ngày làm</p>
+              Kiến thức áp dụng:
+              <ul>
+                <li>Tìm tới thẻ và lấy giá trị</li>
+                <li>Tạo hàm cơ bản</li>
+                <li>Gắn sự kiện click cho button</li>
+                <li>Thay đổi nội dung cho thẻ</li>
+                <li>Xử lý load trang với button của form</li>
+                <li>Xử lý ép kiểu dữ liệu</li>
+              </ul>
+            </div>
+            <div class="calc">
+              <div class="input-number">
+                <input type="number" placeholder="Nhập số thứ 1" class="inputnumber" />
+                <input type="number" placeholder="nhập số thứ 2" class="inputnumber" />
+                <input type="number" placeholder="nhập số thứ 3" class="inputnumber" />
+                <input type="number" placeholder="nhập số thứ 4" class="inputnumber" />
+                <input type="number" placeholder="nhập số thứ 5" class="inputnumber" />
+
+              </div>
+
+              <div class="result">
+                <button class="button-result" onclick="tinhTrungBinh()">Tính trung bình</button>
+                <input type="number" placeholder="Lương nhận được" id="averaged"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-tabId="3" class="box-homework home-work3">
+          <h2>Tính tiền lương nhân viên</h2>
+          <div class="sug">
+            <div class="text-sug">
+              <b>Gợi ý:</b>
+              <p>Công thức: Lương = Lương 1 ngày * số ngày làm</p>
+              Kiến thức áp dụng:
+              <ul>
+                <li>Tìm tới thẻ và lấy giá trị</li>
+                <li>Tạo hàm cơ bản</li>
+                <li>Gắn sự kiện click cho button</li>
+                <li>Thay đổi nội dung cho thẻ</li>
+                <li>Xử lý load trang với button của form</li>
+              </ul>
+            </div>
+            <div class="calc">
+              <div class="input-number">
+                <input type="number" placeholder="Nhập lương một ngày" />
+                <input type="number" placeholder="Số ngày làm" />
+              </div>
+
+              <div class="pay">
+                <button class="button-result">Tính lương</button>
+                <input type="number" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-tabId="4" class="box-homework home-work4">
+          <h2>Tính tiền lương nhân viên</h2>
+          <div class="sug">
+            <div class="text-sug">
+              <b>Gợi ý:</b>
+              <p>Công thức: Lương = Lương 1 ngày * số ngày làm</p>
+              Kiến thức áp dụng:
+              <ul>
+                <li>Tìm tới thẻ và lấy giá trị</li>
+                <li>Tạo hàm cơ bản</li>
+                <li>Gắn sự kiện click cho button</li>
+                <li>Thay đổi nội dung cho thẻ</li>
+                <li>Xử lý load trang với button của form</li>
+              </ul>
+            </div>
+            <div class="calc">
+              <div class="input-number">
+                <input type="number" placeholder="Nhập lương một ngày" />
+                <input type="number" placeholder="Số ngày làm" />
+              </div>
+
+              <div class="pay">
+                <button class="button-result">Tính lương</button>
+                <input type="number" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-tabId="5" class="box-homework home-work5">
+          <h2>Tính tiền lương nhân viên</h2>
+          <div class="sug">
+            <div class="text-sug">
+              <b>Gợi ý:</b>
+              <p>Công thức: Lương = Lương 1 ngày * số ngày làm</p>
+              Kiến thức áp dụng:
+              <ul>
+                <li>Tìm tới thẻ và lấy giá trị</li>
+                <li>Tạo hàm cơ bản</li>
+                <li>Gắn sự kiện click cho button</li>
+                <li>Thay đổi nội dung cho thẻ</li>
+                <li>Xử lý load trang với button của form</li>
+              </ul>
+            </div>
+            <div class="calc">
+              <div class="input-number">
+                <input type="number" placeholder="Nhập lương một ngày" />
+                <input type="number" placeholder="Số ngày làm" />
+              </div>
+
+              <div class="pay">
+                <button class="button-result">Tính lương</button>
+                <input type="number" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    //clickbutton and showbox
+    var btn = document.querySelectorAll('.menu-button');
+    var box = document.querySelectorAll('.box-homework');
+
+    // tinh luong
+      
+
+    for (var i = 0; i < btn.length; i++) {
+      btn[i].addEventListener("click", turnLight);
+    }
+    function turnLight(e) {
+      for (var i = 0; i < btn.length; i++) {
+        btn[i].classList.remove('click-button');
+      }
+      e.target.classList.add('click-button');
+      for (var i = 0; i < box.length; i++) {
+        box[i].classList.remove('show');
+      }
+      var dataTab = e.target.getAttribute('data-tab');
+
+      var tabToActive = document.querySelector(`div[data-tabId="${dataTab}"]`);
+
+      tabToActive.classList.add('show');
+    }
+
+
+    //tính lương
+            function tinhLuong() {
+              var netSalary = document.getElementById('Net-salary');
+              var input = document.getElementsByTagName('input');
+              netSalary.value = parseInt(input[0].value) * parseInt(input[1].value);
+            }
+
+
+
+            function tinhTrungBinh() {
+              var averaged2 = document.getElementById('averaged').value;   
+              var inputNumber = document.getElementsByClassName('inputnumber');
+              var averaged1 = 0;
+              var count = 0;
+              
+                for(var i = 0; i < inputNumber.length; i++){
+                      averaged1 = averaged1 + inputNumber[i];
+                      
+                }
+                averaged2.value = averaged1 / inputNumber.length;
+                console.log(averaged2)
+
+                 
+
+                              }
+
+  </script>
+</html>
